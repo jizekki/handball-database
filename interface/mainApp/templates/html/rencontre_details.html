@@ -1,0 +1,156 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center pt-5 px-2">
+  <div class="col-md-7">
+    <div class="card myCard">
+      <div class="card-body" style="padding-bottom: 0 !important;">
+        <div class="d-flex justify-content-between">
+          <h1 class="card-title ar font-weight-bold" style="font-size: 25px;">
+            {{ rencontre.numero_equipe_accueillante.nom_equipe }}</h1>
+          <h1 class="card-title ar font-weight-bold" style="font-size: 30px;">VS</h1>
+          <h1 class="card-title ar font-weight-bold" style="font-size: 25px;">
+            {{ rencontre.numero_equipe_recue.nom_equipe }}</h1>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="card-text ar">{{ rencontre.numero_equipe_accueillante.numero_club.nom_club }},
+            {{ rencontre.numero_equipe_accueillante.categorie }}
+            {{ rencontre.numero_equipe_accueillante.ordre_dans_categorie }}</p>
+          <p class="card-text ar">{{ rencontre.numero_equipe_recue.numero_club.nom_club }},
+            {{ rencontre.numero_equipe_recue.categorie }}
+            {{ rencontre.numero_equipe_recue.ordre_dans_categorie }}</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <div class="d-flex justify-content-between">
+              <p class="display-1">{{ rencontre.score_equipe_accueillante }}</p>
+              <p class="display-1">-</p>
+              <p class="display-1">{{ rencontre.score_equipe_recue }}</p>
+            </div>
+          </div>
+        </div>
+        <hr class="text-muted">
+        <div class="collapse-content ar">
+
+          <div class="collapse" id="collapseArea">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">- Informations sur la rencontre</p>
+            </div>
+            <div class="container-fluid">
+              <table class="table table-bordered text-center mt-4">
+                <tbody>
+                  <tr>
+                    <td class="font-weight-normal" style="border:none;">N° de rencontre</td>
+                    <td class="font-weight-normal" style="border:none;">{{ rencontre.numero_de_rencontre }}</td>
+                  </tr>
+                  <tr>
+                    <td class="font-weight-normal" style="border:none;">Date de rencontre
+                    </td>
+                    <td class="font-weight-normal" style="border:none;">{{ rencontre.date_de_rencontre }}</td>
+                  </tr>
+                  <tr>
+                    <td class="font-weight-normal" style="border:none;">Equipe accueillante
+                    </td>
+                    <td class="font-weight-normal" style="border:none;">
+                      {{ rencontre.numero_equipe_accueillante.nom_equipe }}</td>
+                  </tr>
+                  <tr>
+                    <td class="font-weight-normal" style="border:none;">Equipe reçue
+                    </td>
+                    <td class="font-weight-normal" style="border:none;">{{ rencontre.numero_equipe_recue.nom_equipe }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr class="text-muted">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">- Bilans des buts marqués (<i class="fas fa-check-circle text-success"></i>)
+                et fautes
+                commises (<i class="fas fa-exclamation-circle text-danger"></i>)
+              </p>
+            </div>
+            <div class="container-fluid">
+              <table class="table table-bordered text-center mt-4">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="4" class="col-xs-6">{{ rencontre.numero_equipe_accueillante.nom_equipe }}
+                      (Accueillante)</th>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="col-xs-4">Joueur</th>
+                    <th scope="col" class="col-xs-2"><i class="fas fa-check-circle text-success">
+                    </th>
+                    <th scope="col" class="col-xs-2"><i class="fas fa-exclamation-circle text-danger">
+                    </th>
+                    <th scope="col" class="col-xs-2"><i class="fas fa-plus-circle text-success"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for participer in joueurs_accueillants  %}
+                  <tr>
+                    <td>{{ participer.numero_de_licence.nom_joueur}} {{ participer.numero_de_licence.prenom_joueur}}
+                    </td>
+                    <td>{{ participer.nombre_points_marques }}</td>
+                    <td>{{ participer.nombre_fautes_commises }}</td>
+                    <td><a href="{% url 'joueur_details' participer.numero_de_licence.numero_de_licence %}"
+                        class="btn text-success shadow-none">Détails</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <div class="container-fluid">
+              <table class="table table-bordered text-center mt-3">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="4" class="col-xs-6">{{ rencontre.numero_equipe_recue.nom_equipe }} (Reçue)
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col" class="col-xs-4">Joueur</th>
+                    <th scope="col" class="col-xs-2"><i class="fas fa-check-circle text-success">
+                    </th>
+                    <th scope="col" class="col-xs-2"><i class="fas fa-exclamation-circle text-danger"></i>
+                    </th>
+                    <th scope="col" class="col-xs-2"><i class="fas fa-plus-circle text-success"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for participer in joueurs_recus  %}
+                  <tr>
+                    <td>{{ participer.numero_de_licence.nom_joueur}} {{ participer.numero_de_licence.prenom_joueur}}
+                    </td>
+                    <td>{{ participer.nombre_points_marques }}</td>
+                    <td>{{ participer.nombre_fautes_commises }}</td>
+                    <td><a href="{% url 'joueur_details' participer.numero_de_licence.numero_de_licence %}"
+                        class="btn text-success shadow-none">Détails</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <div class="row justify-content-center">
+              <div class="col-md-5">
+                <a href="{% url 'supprimer_rencontre' rencontre.numero_de_rencontre %}"
+                  class="btn btn-block btn-danger">Supprimer la rencontre</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <a class="btn text-success noShadow p-1 collapsed" data-toggle="collapse" href="#collapseArea"
+            aria-expanded="false" aria-controls="collapseArea">Afficher tous les détails de la
+            rencontre</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

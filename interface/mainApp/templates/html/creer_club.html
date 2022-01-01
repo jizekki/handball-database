@@ -1,0 +1,39 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center py-4 px-2">
+    <div class="col-md-7">
+        <div class="card myCard">
+            <div class="card-body" style="padding-bottom: 0 !important;">
+                <div class="d-flex justify-content-between">
+                    <p class="font-weight-bold">Remplir les données du club
+                    </p>
+                </div>
+                <hr>
+                <div class="form">
+                    <form action="{% url 'creer_club_submit' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="" id="">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="firstName">Nom du club</label>
+                                        <input type="text" class="form-control" id="clubName" name="clubName"
+                                            placeholder="Nom du club" value="" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <button type="submit" class="btn btn-success">Ajouter le club</button>
+                            <a href="{% url 'home' %}" class="btn btn-danger text-white">Annuler</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

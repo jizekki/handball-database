@@ -1,0 +1,51 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+<div class="mx-3 mb-2 mt-4" id="">
+    <div class="text-center" style="cursor: auto !important;">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6 mt-2 ar">
+                <div class="card myCard pt-4 profile-card shadowyes">
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">Liste des rencontres</h5>
+                        <hr>
+                        <table class="table">
+                            <tbody>
+                                {% for rencontre in rencontres %}
+                                <tr>
+                                    <td class="font-weight-normal align-middle" style="border:none;">
+                                        <div class="col">
+                                            <div href="#" class="text-left">
+                                                {{ rencontre.numero_equipe_accueillante.nom_equipe }}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="font-weight-normal align-middle" style="border:none;">
+                                        <div class="col">
+                                            <div href="#" class="text-left">{{ rencontre.date_de_rencontre }}</div>
+                                        </div>
+                                    </td>
+                                    <td class="font-weight-normal align-middle" style="border:none;">
+                                        <div class="col">
+                                            <div href="#" class="text-left">
+                                                {{ rencontre.numero_equipe_recue.nom_equipe }}</div>
+                                        </div>
+                                    </td>
+                                    <td class="float-right font-weight-normal" style="border:none;">
+                                        <a href="{% url 'rencontre_details' rencontre.numero_de_rencontre %}"
+                                            class="btn text-success shadow-none">
+                                            <i class="fas fa-plus fa-lg text-success pr-2"></i>Détails
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

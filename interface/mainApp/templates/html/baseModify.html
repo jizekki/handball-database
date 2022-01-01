@@ -1,0 +1,75 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="mx-3 mb-2 pt-4">
+    <div class="text-center" style="cursor: auto !important;">
+        <div class="row justify-content-center pt-4">
+            <div class="col-md-3 mt-2 ar">
+                <div class="card myCard pt-4 profile-card shadowyes">
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">Afficher les clubs</h5>
+                        <hr>
+                        <p class="card-text">Consulter la liste des clubs, leurs informations et leurs équipes...
+                        </p>
+                        <a href="{% url 'clubs' %}" class="btn myButton ar mt-4">Afficher les clubs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mt-2 ar">
+                <div class="card myCard pt-4 profile-card shadowyes">
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">Afficher les rencontres</h5>
+                        <hr>
+                        <p class="card-text">Afficher toutes les rencontres existant dans la base de données...
+                        </p>
+                        <a href="{% url 'rencontres' %}" class="btn myButton ar mt-4">Afficher les
+                            rencontres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mt-2 ar">
+                <div class="card myCard pt-4 profile-card shadowyes">
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">Afficher les joueurs</h5>
+                        <hr>
+                        <p class="card-text">Afficher tous les joueurs existant dans la base de données...
+                        </p>
+                        <a href="{% url 'joueurs' %}" class="btn myButton ar mt-4">Afficher les
+                            joueurs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-4 pb-5 pt-2">
+            <div class="col-md-9 mt-2 ar">
+                <div class="card myCard pt-4 profile-card shadowyes">
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">Ajouter des données à la base</h5>
+                        <hr>
+                        <p class="card-text">
+                        </p>
+                        <div class="row  justify-content-center">
+                            <div class="col">
+                                <a href="{% url 'creer_joueur' %}" class="btn myButton ar mt-2">Ajouter un joueur</a>
+                                <a href="{% url 'creer_club' %}" class="btn myButton ar mt-2">Ajouter un club</a>
+                                <a href="{% url 'creer_responsable' %}" class="btn myButton ar mt-2">Ajouter un
+                                    responsable</a>
+                                <a href="{% url 'creer_participer' %}" class="btn myButton ar mt-2">Ajouter une
+                                    participation</a>
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'creer_entraineur' %}" class="btn myButton ar mt-2">Ajouter un
+                                    entraineur</a>
+                                <a href="{% url 'creer_equipe' %}" class="btn myButton ar mt-2">Ajouter une équipe</a>
+                                <a href="{% url 'creer_rencontre' %}" class="btn myButton ar mt-2">Ajouter une
+                                    rencontre</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

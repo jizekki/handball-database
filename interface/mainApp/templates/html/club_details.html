@@ -1,0 +1,65 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 px-2 mt-2 ar">
+        <div class="card myCard pt-4 profile-card shadowyes px-2">
+            <div class="card-body text-center pt-0">
+                <h5 class="card-title">Détails du Club {{ club.nom_club }}</h5>
+                <hr>
+                <div class="d-flex justify-content-between">
+                </div>
+                <div class="container-fluid">
+                    <table class="table table-bordered text-center mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="6" class="col-xs-10">Responsables du club</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" class="col-xs-2">Nom</th>
+                                <th scope="col" class="col-xs-2">Prénom</th>
+                                <th scope="col" class="col-xs-2">Poste occupé</th>
+                                <th scope="col" class="col-xs-2">Email</th>
+                                <th scope="col" class="col-xs-2">Téléphone</th>
+                                <th scope="col" class="col-xs-2">Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for responsable in responsables %}
+                            <tr>
+                                <td>{{ responsable.nom_responsable }}</td>
+                                <td>{{ responsable.prenom_responsable }}</td>
+                                <td>{{ responsable.poste }}</td>
+                                <td>{{ responsable.email_responsable }}</td>
+                                <td>{{ responsable.telephone_responsable }}</td>
+                                <td><a href="{% url 'supprimer_responsable' responsable.numero_responsable %}"
+                                        class="btn btn-block text-danger"><i class="fas fa-trash"></i> </a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                {% for equipe in equipes %}
+                <tr>
+                    <a href="{% url 'equipe_details' equipe.numero_equipe %}"
+                        class="btn myButton noShadow p-1 text-white collapsed mt-3">Afficher l'équipe
+                        {{ equipe.nom_equipe }}
+                    </a>
+                </tr>
+                {% endfor %}
+            </div>
+            <hr>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <a href="{% url 'supprimer_club' club.numero_club %}" class="btn btn-block btn-danger">Supprimer le
+                        club</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

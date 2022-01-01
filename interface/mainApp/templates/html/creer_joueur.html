@@ -1,0 +1,59 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center py-4 px-2">
+    <div class="col-md-7">
+        <div class="card myCard">
+            <div class="card-body" style="padding-bottom: 0 !important;">
+                <div class="d-flex justify-content-between">
+                    <p class="font-weight-bold">Remplir les données du joueur
+                    </p>
+                </div>
+                <hr>
+                <div class="form">
+                    <form action="{% url 'creer_joueur_submit' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="" id="">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="firstName">Prénom</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName"
+                                            placeholder="Prénom" value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="lastName">Nom</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName"
+                                            placeholder="Nom" value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="birthdate">Date de naissance</label>
+                                        <input type="date" class="form-control" id="birthdate" name="birthdate"
+                                            placeholder="YYYY-MM-DD" value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="email">Adresse email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="email.adress@example.com" value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="phonenumber">Numéro de téléphone</label>
+                                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                                            placeholder="0612345678" value="" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <button type="submit" class="btn btn-success">Ajouter le joueur</button>
+                            <a href="{% url 'home' %}" class="btn btn-danger text-white">Annuler</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

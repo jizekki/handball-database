@@ -1,0 +1,38 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+<div class="mx-3 mt-4" id="">
+    <div class="text-center" style="cursor: auto !important;">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-2 ar">
+                <div class="card myCard pt-4 profile-card shadowyes">
+                    <div class="card-body pt-0">
+                        <h5 class="card-title">Liste des clubs</h5>
+                        <hr>
+                        <table class="table">
+                            <tbody>
+                                {% for club in clubs %}
+                                <tr>
+                                    <td class="font-weight-normal align-middle" style="border:none;">
+                                        <div class="col">
+                                            <div href="#" class="text-left">{{ club.nom_club }}</div>
+                                        </div>
+                                    </td>
+                                    <td class="float-right font-weight-normal" style="border:none;">
+                                        <a href="{% url 'club_details' club.numero_club %}"
+                                            class="btn text-success shadow-none">
+                                            <i class="fas fa-plus-circle fa-lg text-success pr-2"></i>Détails
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

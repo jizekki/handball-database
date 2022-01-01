@@ -1,0 +1,70 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center py-4">
+    <div class="col-md-11">
+        <div class="row justify-content-center">
+            {% for joueur in joueurs %}
+            <div class="col-md-6 mb-3">
+                <div class="card myCard">
+                    <div class="card-body" style="padding-bottom: 0 !important;">
+                        <h1 class="card-title ar font-weight-bold" style="font-size: 25px;">{{ joueur.nom_joueur }}
+                            {{ joueur.prenom_joueur }}</h1>
+                        <p class="card-text ar font-weight-bold text-info"><i class="fas fa-hashtag text-info"></i>
+                            {{ joueur.numero_de_licence }}</p>
+                        <p class="card-text ar">
+                        </p>
+                        <hr>
+                        <div class="container-fluid">
+                            <table class="table mt-4">
+                                <tbody>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">N° de licence
+                                        </td>
+                                        <td class="align-middle font-weight-normal" style="border:none;">
+                                            {{ joueur.numero_de_licence }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Date de
+                                            Naissance
+                                        </td>
+                                        <td class="font-weight-normal align-middle" style="border:none;">
+                                            {{ joueur.date_naissance }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Email</td>
+                                        <td class="align-middle font-weight-normal" style="border:none;">
+                                            {{ joueur.email_joueur }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Téléphone</td>
+                                        <td class="align-middle font-weight-normal" style="border:none;">
+                                            {{ joueur.telephone_joueur }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <a href="{% url 'joueur_details' joueur.numero_de_licence %}"
+                                    class="btn btn-block btn-success">Plus de détails</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'supprimer_joueur' joueur.numero_de_licence %}"
+                                    class="btn btn-block btn-danger">Supprimer le joueur</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

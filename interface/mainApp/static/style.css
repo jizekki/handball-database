@@ -1,0 +1,205 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5);
+	background-size: 400% 400%;
+  /* animation: gradient 15s ease infinite; */
+}
+
+body {
+  position: relative;
+}
+
+.wrapper {
+  min-height: 85%;
+  margin-bottom: -50px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.shadowyes {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+.push {
+  height: 15px;
+}
+
+.myCard {
+  background-color: white;
+  padding: 15px;
+  border: 0px !important;
+  border-radius: 15px !important;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  margin-bottom: 20px;
+}
+
+.myButton {
+  border: 0px !important;
+  border-radius: 17px !important;
+  background-color: #6c7ecb;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 80%;
+  transition: all 0.3s ease 0s;
+}
+
+.myButton:hover {
+  background-color: #6c7ecb;
+  color: white;
+  width: 82%;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+
+.myButtonDanger {
+  background-color: #dc3545 !important;
+}
+
+.testbtn{
+  display: block;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  border: none;
+  border-radius: 4px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-align: center;
+  font-weight: normal;
+  background: linear-gradient(to left, #06bfff 50%, #2b74ff 100%);
+  background-size: 200%;
+  background-position: left 0;
+  transition: background-position 300ms ease-in;
+}
+
+
+.noShadow:active,
+ .noShadow:focus,
+ .noShadow.active {
+   background-image: none;
+   outline: 0;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+ }
+
+
+.hiddenBlock {
+  display: none;
+}
+
+
+.text-muted {
+  color: white !important;
+  opacity: 50%;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.ar {
+  font-family: "Changa", sans-serif;
+}
+
+::-webkit-input-placeholder {
+  font-family: "Changa", sans-serif;
+}
+:-moz-placeholder {
+  font-family: "Changa", sans-serif;
+}
+::-moz-placeholder {
+  font-family: "Changa", sans-serif;
+}
+:-ms-input-placeholder {
+  font-family: "Changa", sans-serif;
+}
+
+.separator{
+  border-right: 3px solid white;
+}
+
+
+
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table th , .table {
+  text-align: center;
+}
+
+/* Search Bar */
+
+.search_input::-webkit-input-placeholder {
+  color: white;
+}
+
+
+.search-bar input[type=text]:focus:not([readonly]) {
+
+  box-shadow: none;
+  border-color: white;
+}
+
+
+.searchbar{
+  background-color: #6c7ecb;
+  border-radius: 30px;
+  padding: 10px;
+  }
+
+  .search_input{
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  line-height: 40px;
+  padding: 0 10px;
+  width: 450px;
+  }

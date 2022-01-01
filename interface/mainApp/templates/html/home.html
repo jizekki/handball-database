@@ -1,0 +1,46 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="row justify-content-center px-3 pt-5">
+  <p class="text-white text-center title" style="font-family: 'Ubuntu', sans-serif;">L'interface
+    graphique du projet
+    de gestion de bases de données
+  </p>
+</div>
+<div class="row justify-content-center mt-3 px-3 pb-5">
+  <p class="text-white text-center subtitle" style="font-family: 'Ubuntu', sans-serif;">Fédération sportive de
+    Hand-ball
+  </p>
+</div>
+<div class="text-center" style="cursor: auto !important;">
+  <div class="row justify-content-center mb-4 pb-5">
+
+    <div class="col-md-4 ar">
+      <div class="card myCard pt-4 profile-card shadowyes">
+        <div class="card-body pt-0">
+          <h5 class="card-title">Consulter et modifier la base</h5>
+          <hr>
+          <p class="card-text">Ici, il est possible d'afficher les données stockées dans la base de
+            données ou en ajouter.</p>
+          <a href="{% url 'baseModify' %}" class="btn myButton mt-5">Accéder à la base</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 ar">
+      <div class="card myCard pt-4 profile-card shadowyes">
+        <div class="card-body pt-0">
+          <h5 class="card-title">Afficher les statistiques</h5>
+          <hr>
+          <p class="card-text">Cette section rassemble des statistiques sur l'état actuel de la base de données.
+          </p>
+          <a href="{% url 'statistics' %}" class="btn myButton mt-5">Accéder aux
+            statistiques</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

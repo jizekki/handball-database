@@ -1,0 +1,64 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center py-4 px-2">
+    <div class="col-md-7">
+        <div class="card myCard">
+            <div class="card-body" style="padding-bottom: 0 !important;">
+                <div class="d-flex justify-content-between">
+                    <p class="font-weight-bold">Remplir les données de la rencontre
+                    </p>
+                </div>
+                <hr>
+                <div class="form">
+                    <form action="{% url 'creer_rencontre_submit' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="" id="">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="dateRencontre">Date de la rencontre</label>
+                                        <input type="date" class="form-control" id="dateRencontre" name="dateRencontre"
+                                            placeholder="YYYY-MM-DD" value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="score_equipe_accueillante">Score de l'équipe
+                                            accueillante</label>
+                                        <input type="text" class="form-control" id="score_equipe_accueillante"
+                                            name="score_equipe_accueillante" placeholder="35, 38..." value=""
+                                            required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="score_equipe_recue">Score de l'équipe
+                                            reçue</label>
+                                        <input type="text" class="form-control" id="score_equipe_recue"
+                                            name="score_equipe_recue" placeholder="35, 38..." value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="numero_equipe_accueillante">Numéro de
+                                            l'équipe accueillante</label>
+                                        <input type="text" class="form-control" id="numero_equipe_accueillante"
+                                            name="numero_equipe_accueillante" placeholder="1, 2..." value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="numero_equipe_recue">Numéro de
+                                            l'équipe reçue</label>
+                                        <input type="text" class="form-control" id="numero_equipe_recue"
+                                            name="numero_equipe_recue" placeholder="1, 2..." value="" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <button type="submit" class="btn btn-success">Ajouter la rencontre</button>
+                            <a href="{% url 'home' %}" class="btn btn-danger text-white">Annuler</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

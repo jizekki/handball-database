@@ -1,0 +1,129 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center py-4 px-2">
+    <div class="col-md-7">
+        <div class="card myCard">
+            <div class="card-body" style="padding-bottom: 0 !important;">
+                <h1 class="card-title ar font-weight-bold" style="font-size: 25px;">{{ joueur.nom_joueur }}
+                    {{ joueur.prenom_joueur }}</h1>
+                <p class="card-text ar font-weight-bold text-info"><i class="fas fa-hashtag text-info"></i>
+                    {{ joueur.numero_de_licence }}</p>
+                <p class="card-text ar">
+                    {% if equipe_du_joueur %}
+                    <td class="align-middlefont-weight-normal" style="border:none;">
+                        {{ equipe_du_joueur.nom_equipe }}
+                    </td>
+                    {% else %}
+                    <td class="align-middlefont-weight-normal" style="border:none;">
+                        Aucune équipe
+                    </td>
+                    {% endif %}
+                </p>
+                <div class="d-flex justify-content-between">
+                    <p class="display-1">{{ points_marques }}</p>
+                    <i class="far fa-running fa-5x pt-3 amber-text"></i>
+                </div>
+                <div class="d-flex justify-content-between mb-4 ar">
+                    <p><i class="fas fa-check-circle fa-lg text-success pr-2"></i>Total des points marqués</p>
+                    <p><i class="fas fa-exclamation-circle fa-lg text-danger pr-2"></i>{{ fautes_commises }} fautes en
+                        total</p>
+                </div>
+                <hr>
+                <div class="collapse-content ar">
+
+                    <div class="collapse" id="collapseArea">
+                        <div class="d-flex justify-content-between">
+                            <p class="font-weight-bold">- Données du joueur
+                            </p>
+                        </div>
+                        <div class="container-fluid">
+                            <table class="table mt-4">
+                                <tbody>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">N° de licence
+                                        </td>
+                                        <td class="align-middle font-weight-normal" style="border:none;">
+                                            {{ joueur.numero_de_licence }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Date de
+                                            Naissance
+                                        </td>
+                                        <td class="font-weight-normal align-middle" style="border:none;">
+                                            {{ joueur.date_naissance }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Email</td>
+                                        <td class="align-middle font-weight-normal" style="border:none;">
+                                            {{ joueur.email_joueur }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Téléphone</td>
+                                        <td class="align-middle font-weight-normal" style="border:none;">
+                                            {{ joueur.telephone_joueur }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Club</td>
+                                        {% if equipe_du_joueur %}
+                                        <td class="align-middlefont-weight-normal" style="border:none;">
+                                            {{ equipe_du_joueur.numero_club.nom_club }}
+                                        </td>
+                                        {% else %}
+                                        <td class="align-middlefont-weight-normal" style="border:none;">
+                                            Aucun club
+                                        </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Équipe</td>
+                                        {% if equipe_du_joueur %}
+                                        <td class="align-middlefont-weight-normal" style="border:none;">
+                                            {{ equipe_du_joueur.nom_equipe }}
+                                        </td>
+                                        {% else %}
+                                        <td class="align-middlefont-weight-normal" style="border:none;">
+                                            Aucune équipe
+                                        </td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-normal align-middle" style="border:none;">Catégorie de
+                                            l'équipe</td>
+                                        {% if equipe_du_joueur %}
+                                        <td class="align-middlefont-weight-normal" style="border:none;">
+                                            {{ equipe_du_joueur.categorie }} {{ equipe_du_joueur.ordre_dans_categorie }}
+                                        </td>
+                                        {% else %}
+                                        <td class="align-middlefont-weight-normal" style="border:none;">
+                                            Aucune catégorie
+                                        </td>
+                                        {% endif %}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-center">
+                            <div class="col-md-5">
+                                <a href="{% url 'supprimer_joueur' joueur.numero_de_licence %}"
+                                    class="btn btn-block btn-danger">Supprimer le joueur</a>
+                            </div>
+                        </div>
+                        <hr>
+
+                    </div>
+                    <a class="btn text-success noShadow p-1 collapsed" data-toggle="collapse" href="#collapseArea"
+                        aria-expanded="false" aria-controls="collapseArea">Afficher les données
+                        personnelles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

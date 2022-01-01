@@ -1,0 +1,55 @@
+{% extends "html/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center py-4 px-2">
+    <div class="col-md-7">
+        <div class="card myCard">
+            <div class="card-body" style="padding-bottom: 0 !important;">
+                <div class="d-flex justify-content-between">
+                    <p class="font-weight-bold">Remplir les données de la participation
+                    </p>
+                </div>
+                <hr>
+                <div class="form">
+                    <form action="{% url 'creer_participer_submit' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="" id="">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="numRencontre">Numero de la
+                                            rencontre</label>
+                                        <input type="text" class="form-control" id="numRencontre" name="numRencontre"
+                                            placeholder="1, 2..." value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="numLicence">Numero de licence du joueur</label>
+                                        <input type="text" class="form-control" id="numLicence" name="numLicence"
+                                            placeholder="1, 2..." value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="points_marques">Nombre de points marqués</label>
+                                        <input type="text" class="form-control" id="points_marques"
+                                            name="points_marques" placeholder="0, 13..." value="" required />
+                                    </div>
+                                    <div class="form-group text-left">
+                                        <label class="mr-2 mt-2" for="fautes">Nombre de fautes commises</label>
+                                        <input type="text" class="form-control" id="fautes" name="fautes"
+                                            placeholder="0, 10..." value="" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <button type="submit" class="btn btn-success">Ajouter la participation</button>
+                            <a href="{% url 'home' %}" class="btn btn-danger text-white">Annuler</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

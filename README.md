@@ -1,1 +1,2 @@
 # handball-database
+Ce projet intitulé "Fédération sportive de Hand-ball" a pour objectif de mettre en oeuvre, sur un cas pratique, les notions et les méthodes de construction d'une base de données vues dans le cours. Le projet démarre par une modélisation des données, et aboutit à la création d’une base de données relationnelle et à l’implémentation d’un certain nombre d’opérations (consultation, mises à jour, etc.) ainsi que d'une interface graphique qui simplifie l'accès à la base de données.
